@@ -4,8 +4,8 @@
 ## Part1 - Lines 11  - 112 Merge the training and the test sets to create one data set.
 ## Part2 - Lines 114 - 140 Extract only the mean and standard deviation for each measurement. 
 ## Part3 - Lines 142 - 157 Use descriptive activity names for the activities in the data set.
-## Part4 - Lines 159 - 192 Appropriately label the data set with descriptive variable names.
-## Part5 - Lines 194 - 212 Create a tidy data set that is averaged per activity and subject.
+## Part4 - Lines 159 - 207 Appropriately label the data set with descriptive variable names.
+## Part5 - Lines 209 - 232 Create a tidy data set that is averaged per activity and subject.
 ##
 ## ---------------------------------------------------------------
 ## Part 1: MERGE THE TRAINING AND TEST SETS TO CREATE ONE DATA SET.
