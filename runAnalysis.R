@@ -182,6 +182,21 @@ for( name in 1:ncols ) {
   column_header <- paste(c(column_header),collapse="") ## Piece the name back together
   colnames(combined_set)[name] <- column_header        ## Assign the column its new name!
 }
+##
+## Now do this for the mean_std_set
+##
+nmcols <- length(mean_std_set)
+for( name in 1:nmcols ) {
+  column_header <- strsplit(names(mean_std_set[name]), '-') ## Split on hyphen's, which will be removed
+  column_header <- gsub('[(][)]|[)]','', unlist(column_header)) ## Delete parantheses
+  column_header <- gsub('[(]|,', '_', unlist(column_header)) ## Replace '(' and ',' with '_'
+  if((npieces = length(column_header)) > 1) {         ## This adds an '_' before the function name
+    column_header[[1]] <- tolower(column_header[[1]])   ## Convert first parsed string element to lowercase
+    column_header[npieces] <- paste(c('_', column_header[npieces]), collapse="")
+  }    
+  column_header <- paste(c(column_header),collapse="") ## Piece the name back together
+  colnames(mean_std_set)[name] <- column_header        ## Assign the column its new name!
+}
 ## Some examples of the renaming process
 ## Original fBodyAccJerk-bandsEnergy()-49,64
 ## New      fbodyaccjerkbandsEnergy_49_64
@@ -198,16 +213,20 @@ for( name in 1:ncols ) {
 ## for each activity and each subject.
 ## Grouping is done efficiently with the aggregate function. Use "mean" as the aggregating function.
 ## Do not average the last 2 columns as those will be used for grouping
-avg_by_subject_and_activity <- aggregate(x = combined_set[1:(length(combined_set)-2)], 
+all_by_subject_and_activity <- aggregate(x = combined_set[1:(length(combined_set)-2)], 
                              by = list(combined_set$subject, combined_set$activity), FUN = "mean")
+meanstd_by_subject_and_activity <- aggregate(x = mean_std_set[1:(length(mean_std_set))], 
+                                         by = list(combined_set$subject, combined_set$activity), FUN = "mean")
 # Change the names of the grouping columns
-colnames(avg_by_subject_and_activity)[1] <- "subject"
-colnames(avg_by_subject_and_activity)[2] <- "activity"
+colnames(all_by_subject_and_activity)[1] <- "subject"
+colnames(all_by_subject_and_activity)[2] <- "activity"
+colnames(meanstd_by_subject_and_activity)[1] <- "subject"
+colnames(meanstd_by_subject_and_activity)[2] <- "activity"
 #avg_by_subject_and_activity[["activity"]] <- mapvalues(avg_by_subject_and_activity[["activity"]], 
 #                                        from = c(activity_labels$index), 
 #                                        to = c(as.character(activity_labels$activity)))
 ## And finally ... write out the result!
-write.table(avg_by_subject_and_activity, file = "EndresCJ_CleaningData_CourseProject.txt", row.names=FALSE)
+write.table(meanstd_by_subject_and_activity, file = "EndresCJ_CleaningData_CourseProject.txt", row.names=FALSE)
 ## After running the preceding command, we create avg_by_subject_activity
 ## which is a data frame that contains 180 rows = 30 subjects * 6 activities
 ##
