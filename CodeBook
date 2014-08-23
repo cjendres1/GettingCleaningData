@@ -1,6 +1,28 @@
 This CodeBook describes the variables in the tidy data set created with program runAnalysis.R
 that is located in this repository.
 
+Feature Selection 
+=================
+
+The features selected for this database come from the accelerometer and  
+gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
+These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. 
+Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with 
+a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated 
+into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass 
+Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals 
+(tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated 
+using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, 
+fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. 
+(Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
 The final tidy data set is called meanstd_by_subject_and_activity
 It contains the mean and standard deviation of 33 variables grouped by subject and activity
 The final data set has 68 total columns x 180 rows
@@ -13,7 +35,7 @@ rows  91:120 = WALKING activity for each of 30 subjects
 rows 121:150 = WALKING_DOWNSTAIRS activity for each of 30 subjects
 rows 151:180 = WALKING UPSTAIRS activity for each of 30 subjects
 
-The 68 columsn are as follows:
+The 68 columns are as follows:
 Column  1 = Subject (there are 30 total subjects represented by numbers 1:30)
 Column  2 = Activity (there are 6 values: 
   LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS
