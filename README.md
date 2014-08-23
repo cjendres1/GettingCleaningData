@@ -3,7 +3,7 @@ GettingCleaningData
 
 This is a repository for the Coursera/JHU Getting and Cleaning Data course
 
-All code for this project contained in runAnalysis.R
+All code for this project is contained in runAnalysis.R
 
 The program loads in all data from the UCI HAR Dataset
 Note - since I don't like spaces in directory names I renamed the main folder to UCIHARDataset
