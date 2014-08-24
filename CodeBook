@@ -4,24 +4,31 @@ that is located in this repository.
 Feature Selection 
 =================
 
+-NOTE - the following paragraphs are direct from the original data source and describe
+the original variables and data collection. Variables have been renamed slightly and
+reflect the names as appear in the tidy data set.
+
 The features selected for this database come from the accelerometer and  
 gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
 These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. 
 Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with 
 a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated 
-into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass 
+into body and gravity acceleration signals (tbodyacc_{XYZ} and tgravityacc_{XYZ} using another low pass 
 Butterworth filter with a corner frequency of 0.3 Hz. 
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals 
-(tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated 
-using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+(tbodyaccjerk_{XYZ} and tbodygyrojerk_{XYZ}. Also the magnitude of these three-dimensional signals were calculated 
+using the Euclidean norm (tbodyaccmag, tgravityaccmag, tbodyaccjerkmag, tbodygyromag, tbodygyrojerkmag). 
 
-Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, 
-fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. 
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fbodyacc_{XYZ}, 
+fbodyaccjerk_{XYZ}, fbodygyro_{XYZ}, fbodyaccjerkmag, fbodygyromag, fbodygyrojerkmag. 
 (Note the 'f' to indicate frequency domain signals). 
 
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+Tidy Data Set 
+=============
 
 The final tidy data set is called meanstd_by_subject_and_activity
 It contains the mean and standard deviation of 33 variables grouped by subject and activity
@@ -39,37 +46,37 @@ The 68 columns are as follows:
 Column  1 = Subject (there are 30 total subjects represented by numbers 1:30)
 Column  2 = Activity (there are 6 values: 
   LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS
-Columns 3 - 5  = tbodyacc         MEAN {X,Y,Z}
-Columns 6 - 8  = tbodyacc         STD  {X,Y,Z}
-Columns 9 -11  = tgravityacc      MEAN {X,Y,Z}
-Columns 12-14  = tgravityacc      STD  {X,Y,Z}
-Columns 15-17  = tbodyaccjerk     MEAN {X,Y,Z}
-Columns 18-20  = tbodyaccjerk     STD  {X,Y,Z}
-Columns 21-23  = tbodygyro        MEAN {X,Y,Z}
-Columns 24-26  = tbodygyro        STD  {X,Y,Z}
-Columns 27-29  = tbodygyrojerk    MEAN {X,Y,Z}
-Columns 30-32  = tbodygyrojerk    STD  {X,Y,Z}
-Column  33     = tbodyaccmag      MEAN 
-Column  34     = tbodyaccmag      STD
-Column  35     = tgravityaccmag   MEAN
-Column  36     = tgravityaccmag   STD
-Column  37     = tbodyaccjerkmag  MEAN
-Column  38     = tbodyaccjerkmag  STD
-Column  39     = tbodygyromag     MEAN
-Column  40     = tbodygyromag     STD
-Column  41     = tbodygyrojerkmag MEAN
-Column  42     = tbodygyrojerkmag STD
-Columns 43-45  = fbodyacc         MEAN {X,Y,Z}
-Columns 46-48  = fbodyacc         STD  {X,Y,Z}
-Columns 49-51  = fbodyaccjerk     MEAN {X,Y,Z}
-Columns 52-54  = fbodyaccjerk     STD  {X,Y,Z}
-Columns 55-57  = fbodygyro        MEAN {X,Y,Z}
-Columns 58-60  = fbodygyro        STD  {X,Y,Z}
-Column  61     = fbodyaccmag      MEAN
-Column  62     = fbodyaccmag      STD
-Column  63 = fbodybodyaccjerkmag  MEAN
-Column  64 = fbodybodyaccjerkmag  STD
-Column  65 = fbodybodygyromag     MEAN
-Column  66 = fbodybodygyromag     STD
-Column  67 = fbodybodygyrojerkmag MEAN
-Column  68 = fbodybodygyrojerkmag STD
+Columns 3 - 5  = tbodyaccmean_{X,Y,Z}         MEAN {X,Y,Z}
+Columns 6 - 8  = tbodyaccstd_{X,Y,Z}          STD  {X,Y,Z}
+Columns 9 -11  = tgravityaccmean_{X,Y,Z}      MEAN {X,Y,Z}
+Columns 12-14  = tgravityaccstd_{X,Y,Z}       STD  {X,Y,Z}
+Columns 15-17  = tbodyaccjerkmean_{X,Y,Z}     MEAN {X,Y,Z}
+Columns 18-20  = tbodyaccjerkstd_{X,Y,Z}      STD  {X,Y,Z}
+Columns 21-23  = tbodygyromean_{X,Y,Z}        MEAN {X,Y,Z}
+Columns 24-26  = tbodygyrostd_{X,Y,Z}         STD  {X,Y,Z}
+Columns 27-29  = tbodygyrojerkmean_{X,Y,Z}    MEAN {X,Y,Z}
+Columns 30-32  = tbodygyrojerkstd_{X,Y,Z}     STD  {X,Y,Z}
+Column  33     = tbodyaccmag_mean             MEAN 
+Column  34     = tbodyaccmag_std              STD
+Column  35     = tgravityaccmag_mean          MEAN
+Column  36     = tgravityaccmag_std           STD
+Column  37     = tbodyaccjerkmag_mean         MEAN
+Column  38     = tbodyaccjerkmag_std          STD
+Column  39     = tbodygyromag_mean            MEAN
+Column  40     = tbodygyromag_std             STD
+Column  41     = tbodygyrojerkmag             MEAN
+Column  42     = tbodygyrojerkmag_std         STD
+Columns 43-45  = fbodyaccmean_{X,Y,Z}         MEAN {X,Y,Z}
+Columns 46-48  = fbodyaccstd_{X,Y,Z}          STD  {X,Y,Z}
+Columns 49-51  = fbodyaccjerkmean_{X,Y,Z}     MEAN {X,Y,Z}
+Columns 52-54  = fbodyaccjerkstd_{X,Y,Z}      STD  {X,Y,Z}
+Columns 55-57  = fbodygyromean_{X,Y,Z}        MEAN {X,Y,Z}
+Columns 58-60  = fbodygyrostd_{X,Y,Z}         STD  {X,Y,Z}
+Column  61     = fbodyaccmag_mean             MEAN
+Column  62     = fbodyaccmag_std              STD
+Column  63 = fbodybodyaccjerkmag_mean         MEAN
+Column  64 = fbodybodyaccjerkmag              STD
+Column  65 = fbodybodygyromag_mean            MEAN
+Column  66 = fbodybodygyromag_std             STD
+Column  67 = fbodybodygyrojerkmag_mean        MEAN
+Column  68 = fbodybodygyrojerkmag_std         STD
